@@ -48,6 +48,12 @@ runner = buff.Buff(target = ("127.0.0.1", 1337))
 runner.setBufferSize(2400)
 runner.setEipOffset(1978)
 runner.sendBadChars()
+
+# you can also exclude by
+runner.sendBadChars(exclude = ["\x42", "\x43"])
+
+# change default EIP placeholder
+runner.sendBadChars(fake_eip = "\x44\x44\x44\x44")
 ```
 
 ## Sending Exploit
