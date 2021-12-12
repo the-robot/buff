@@ -26,7 +26,6 @@ runner.sendPattern()
 ```python
 import buff
 
-
 runner = buff.Buff(target = ("127.0.0.1", 1337), prefix = "OVERFLOW0 ")
 
 BUFFER_SIZE = 1100
