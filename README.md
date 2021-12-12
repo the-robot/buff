@@ -12,6 +12,8 @@
 
 # Usage
 
+I made a [template as well](https://github.com/the-robot/buff/blob/master/example/template.py).
+
 ## Fuzzer
 ```python
 import buff
