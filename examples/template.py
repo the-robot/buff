@@ -45,7 +45,7 @@ FIRST CREATE WOKRING DIRECTORY!!!
 Possible: 23 24 3c 3d 83 84 ba
 
 !mona bytearray -b "\x00\x23\x3c"
-!mona compare -f C:\mona\oscp\bytearray.bin -a 01A0FA30
+!mona compare -f C:\mona\oscp\bytearray.bin -a ESP_address
 """
 # runner.sendBadChars(exclude = [
 #     "\x23",
