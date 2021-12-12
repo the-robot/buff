@@ -22,6 +22,18 @@ runner = buff.Buff(target = ("127.0.0.1", 1337), prefix = "OVERFLOW0 ")
 runner.sendPattern()
 ```
 
+## Find Pattern Offset
+```python
+import buff
+
+
+runner = buff.Buff(target = ("127.0.0.1", 1337), prefix = "OVERFLOW0 ")
+
+BUFFER_SIZE = 1100
+offset = buff.generator.findPatternOffset(BUFFER_SIZE, "v1Av")
+print(offset)
+```
+
 ## Sending Bad Characters
 ```python
 import buff
