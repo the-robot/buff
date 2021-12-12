@@ -1,6 +1,8 @@
-# buff
+# What is BUFF?
 A simple BOF library I wrote under an hour to help me automate with BOF attack.
 It comes with fuzzer and a generic method to generate exploit easily.
+
+<br/>
 
 # Usage
 
