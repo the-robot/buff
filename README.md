@@ -10,6 +10,8 @@
 
 <br/>
 
+> Not all the methods are documented yet as I do not have time now. Feel free to read the code, it's very small code-base anyway :)
+
 # Usage
 
 I made a [template as well](https://github.com/the-robot/buff/blob/master/examples/template.py).
