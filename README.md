@@ -1,6 +1,12 @@
-# What is BUFF?
-A simple BOF library I wrote under an hour to help me automate with BOF attack.
-It comes with fuzzer and a generic method to generate exploit easily.
+<h1 align="center">What is Buff?</h1>  
+
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/the-robot/buff/master/images/gigachad.png" | width=200>
+</p>
+
+<p align="center">A simple BOF library I wrote under an hour to help me automate with BOF attack.</p>
+<p align="center">It comes with fuzzer and a generic method to generate exploit easily.</p>
 
 <br/>
 
