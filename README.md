@@ -35,7 +35,7 @@ runner.sendPattern()
 
 ## Find Pattern Offset
 ```python
-BUFFER_SIZE = 1100
+BUFFER_SIZE = 2400
 offset = buff.generator.findPatternOffset(BUFFER_SIZE, "386F4337")
 print(offset)
 ```
