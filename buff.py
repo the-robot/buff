@@ -102,11 +102,10 @@ class Buff:
         # check Buffer Size
         if self.buffer_size is None:
             raise Exception("Buffer size is not set")
-
-        return generator.generatePattern(self.buffer_size)
+        return self.prefix + generator.generatePattern(self.buffer_size) + self.postfix
 
     def sendPattern(self) -> None:
-        buffer = self.prefix + self.generatePattern() + self.postfix
+        buffer = self.generatePattern()
         ip, port = self.target
         self.sender(ip, port, buffer)
 
