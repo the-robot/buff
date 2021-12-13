@@ -12,7 +12,7 @@ PLACEHOLDER_EIP = "BBBB"
 
 
 class Buff:
-    def __init__(self, target: (str, int), prefix: str, postfix: str = ""):
+    def __init__(self, target: (str, int), prefix: str = "", postfix: str = ""):
         # Custom exploitation methods
         self.sender = sender.send_socket
         self.fuzzer = fuzzer.fuzz
