@@ -37,7 +37,6 @@ FIRST CREATE WOKRING DIRECTORY!!!
 
 
 
-
 # ----- 4. Find Bad Characters -----
 """
 Possible: 23 24 3c 3d 83 84 ba
