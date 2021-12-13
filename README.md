@@ -14,6 +14,14 @@ runner = buff.Buff(target = ("127.0.0.1", 1337), prefix = "OVERFLOW0 ")
 runner.fuzz()
 ```
 
+## Sending Pattern
+```python
+import buff
+
+runner = buff.Buff(target = ("127.0.0.1", 1337), prefix = "OVERFLOW0 ")
+runner.sendPattern()
+```
+
 ## Sending Bad Characters
 ```python
 import buff

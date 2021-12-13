@@ -3,6 +3,7 @@ import socket
 
 from . import constants
 from . import fuzzer
+from . import generator
 from . import sender
 
 
@@ -86,10 +87,24 @@ class Buff:
         self.fuzzer(ip, address, timeout, self.prefix)
 
 
+    # --- Send Pattern ---
+    def sendPattern(self) -> str:
+        """
+        PREFIX + BUFFERS + POSTFIX
+        """
+        # check Buffer Size
+        if self.buffer_size is None:
+            raise Exception("Buffer size is not set")
+
+        buffer = self.prefix + generator.generatePattern(self.buffer_size) + self.postfix
+        ip, port = self.target
+        self.sender(ip, port, buffer)
+
+
     # --- Bad Character Explit ---
     def generateBadChars(self, fake_eip: str = PLACEHOLDER_EIP) -> str:
         """
-        PREFIX + BUFFERS + EIP + BAD CHARACTERS + POSTFIeipX
+        PREFIX + BUFFERS + EIP + BAD CHARACTERS + POSTFIX
         """
 
         # check EIP
