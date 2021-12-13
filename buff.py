@@ -90,7 +90,7 @@ class Buff:
     # --- Generic Sender ---
     def send(self, buffer: str) -> None:
         ip, port = self.target
-        buffer = self.prefix + buffer
+        buffer = self.prefix + buffer + self.postfix
         self.sender(ip, port, buffer)
 
 
