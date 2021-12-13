@@ -2,7 +2,7 @@
 
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/the-robot/buff/master/images/gigachad.png" | width=200>
+    <img src="https://raw.githubusercontent.com/the-robot/buff/master/images/guy.png" | width=200>
 </p>
 
 <p align="center">A simple BOF library I wrote under an hour to help me automate with BOF attack.</p>
