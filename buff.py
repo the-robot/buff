@@ -107,8 +107,8 @@ class Buff:
         # add remaning buffers if missing
         if len(buffer) < self.buffer_size:
             buffer += "A" * (self.buffer_size - len(buffer))
-        
-        return self.prefix + buffer + self.postfixeip
+
+        return self.prefix + buffer + self.postfix
 
     def sendBadChars(self, fake_eip: str = PLACEHOLDER_EIP) -> None:
         buffer = self.generateBadChars(fake_eip)
