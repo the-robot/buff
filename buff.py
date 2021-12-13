@@ -79,9 +79,8 @@ class Buff:
 
 
     # --- Fuzzer ---
-    def fuzz(self, timeout: int = 5) -> None:
-        ip, address = self.target
-        self.fuzzer(ip, address, timeout, self.prefix)
+    def fuzz(self, timeout: int = 5, step_size: int = 100, sleep: int = 1) -> None:
+        self.fuzzer(self.target, timeout, self.prefix, self.postfix, step_size, sleep)
 
 
     # --- Generic Sender ---
