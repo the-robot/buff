@@ -17,7 +17,7 @@ runner.setEipOffset(1978)
 # runner.fuzz()
 
 
-# # ----- 2. Send Unique Characters -----
+# ----- 2. Send Unique Characters -----
 # runner.sendPattern()
 
 
