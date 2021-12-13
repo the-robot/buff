@@ -88,7 +88,7 @@ class Buff:
 
 
     # --- Send Pattern ---
-    def sendPattern(self) -> str:
+    def generatePattern(self) -> str:
         """
         PREFIX + BUFFERS + POSTFIX
         """
@@ -96,7 +96,10 @@ class Buff:
         if self.buffer_size is None:
             raise Exception("Buffer size is not set")
 
-        buffer = self.prefix + generator.generatePattern(self.buffer_size) + self.postfix
+        return generator.generatePattern(self.buffer_size)
+
+    def sendPattern(self) -> None:
+        buffer = self.prefix + self.generatePattern() + self.postfix
         ip, port = self.target
         self.sender(ip, port, buffer)
 
