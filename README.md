@@ -37,12 +37,25 @@ def fuzzer(target: (str, int), timeout: int, prefix: str = "", postfix: str = ""
 runner.setFuzzer(fuzzer)
 ```
 
+## Custom Sender
+This `sender` method is used by `sendPattern`, `sendBadChars` and `sendExploit` methods.  
+You can look [SLmail example](https://github.com/the-robot/buff/tree/master/examples/slmail) for custom fuzzer and sender methods usage.
+
+```python
+# custom sender method
+def sender(target: (str, int), buffer: str) -> None:
+    ...
+
+runner.setSender(sender)
+```
+
+
 ## Sending Pattern
 ```python
 runner.sendPattern()
 ```
 
-## Find Pattern Offset
+## Finding Pattern Offset
 ```python
 BUFFER_SIZE = 2400
 offset = buff.generator.findPatternOffset(BUFFER_SIZE, "386F4337")
