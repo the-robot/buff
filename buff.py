@@ -1,5 +1,4 @@
 from typing import Callable
-import socket
 
 from . import constants
 from . import fuzzer
