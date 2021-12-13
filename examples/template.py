@@ -31,7 +31,7 @@ FIRST CREATE WOKRING DIRECTORY!!!
 """
 !mona findmsp -distance BUFFER_SIZE
 """
-# offset = buff.generator.findPatternOffset(BUFFER_SIZE, "v1Av")
+# offset = buff.generator.findPatternOffset(BUFFER_SIZE, "386F4337")
 # print(offset)
 
 # Set Eip offset

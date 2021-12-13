@@ -7,5 +7,5 @@ def generatePattern(length: int) -> str:
 
 
 def findPatternOffset(length: int, lookfor: str) -> int:
-    pattern = generatePattern(length)
-    return pattern.find(lookfor)
+    output = os.popen(f"/usr/share/metasploit-framework/tools/exploit/pattern_offset.rb -l {length} -q {lookfor}").read()
+    return int(output.split(" ")[-1])
