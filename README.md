@@ -31,7 +31,7 @@ runner.fuzz()
 runner.fuzz(timeout = 5, step_size = 1000, sleep = 3)
 
 # use custom fuzzer
-def fuzzer(target: (str, int), timeout: int, prefix: str = "", postfix: str = "", step_size: int = 100, sleep: int = 1):
+def fuzzer(target: (str, int), timeout: int, prefix: str = "", postfix: str = "", step_size: int = 100, sleep: int = 1) -> None:
     ...
 
 runner.setFuzzer(fuzzer)
