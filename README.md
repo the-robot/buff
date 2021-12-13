@@ -12,7 +12,7 @@
 
 # Usage
 
-I made a [template as well](https://github.com/the-robot/buff/blob/master/example/template.py).
+I made a [template as well](https://github.com/the-robot/buff/blob/master/examples/template.py).
 
 ## Fuzzer
 ```python
