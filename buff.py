@@ -84,9 +84,8 @@ class Buff:
 
     # --- Generic Sender ---
     def send(self, buffer: str) -> None:
-        ip, port = self.target
         buffer = self.prefix + buffer + self.postfix
-        self.sender(ip, port, buffer)
+        self.sender(self.target, buffer)
 
 
     # --- Send Pattern ---
@@ -101,8 +100,7 @@ class Buff:
 
     def sendPattern(self) -> None:
         buffer = self.generatePattern()
-        ip, port = self.target
-        self.sender(ip, port, buffer)
+        self.sender(self.target, buffer)
 
 
     # --- Bad Character Explit ---
@@ -138,8 +136,7 @@ class Buff:
 
     def sendBadChars(self, exclude: [str] = None, fake_eip: str = PLACEHOLDER_EIP) -> None:
         buffer = self.generateBadChars(exclude, fake_eip)
-        ip, port = self.target
-        self.sender(ip, port, buffer)
+        self.sender(self.target, buffer)
 
 
     # --- Real Exploit ---
@@ -176,5 +173,4 @@ class Buff:
 
     def sendExploit(self) -> None:
         buffer = self.generateExploit()
-        ip, port = self.target
-        self.sender(ip, port, buffer)
+        self.sender(self.target, buffer)

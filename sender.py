@@ -1,6 +1,7 @@
 import socket
 
-def send_socket(ip: str, port: int, buffer: str) -> None:
+def send_socket(target: (str, int), buffer: str) -> None:
+    ip, port = target
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     try:
