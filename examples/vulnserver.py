@@ -95,4 +95,4 @@ runner.setExploit(exploit)
 # set padding
 runner.setPaddingSize(16)
 
-runner.sendExploit()
+# runner.sendExploit()
