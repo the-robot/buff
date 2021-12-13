@@ -23,6 +23,8 @@ import buff
 runner = buff.Buff(target = ("127.0.0.1", 1337), prefix = "", postfix = "")
 ```
 
+<br/>
+
 ## Fuzzer
 ```python
 runner.fuzz()
@@ -37,6 +39,8 @@ def fuzzer(target: (str, int), timeout: int, prefix: str = "", postfix: str = ""
 runner.setFuzzer(fuzzer)
 ```
 
+<br/>
+
 ## Custom Sender
 This `sender` method is used by `sendPattern`, `sendBadChars` and `sendExploit` methods.  
 You can look [SLmail example](https://github.com/the-robot/buff/tree/master/examples/slmail) for custom fuzzer and sender methods usage.
@@ -49,11 +53,15 @@ def sender(target: (str, int), buffer: str) -> None:
 runner.setSender(sender)
 ```
 
+<br/>
+
 
 ## Sending Pattern
 ```python
 runner.sendPattern()
 ```
+
+<br/>
 
 ## Finding Pattern Offset
 ```python
@@ -61,6 +69,8 @@ BUFFER_SIZE = 2400
 offset = buff.generator.findPatternOffset(BUFFER_SIZE, "386F4337")
 print(offset)
 ```
+
+<br/>
 
 ## Sending Bad Characters
 ```python
@@ -74,6 +84,8 @@ runner.sendBadChars(exclude = ["\x42", "\x43"])
 # change default EIP placeholder
 runner.sendBadChars(fake_eip = "\x44\x44\x44\x44")
 ```
+
+<br/>
 
 ## Sending Exploit
 ```python
