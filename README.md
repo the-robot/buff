@@ -26,6 +26,15 @@ runner = buff.Buff(target = ("127.0.0.1", 1337), prefix = "", postfix = "")
 ## Fuzzer
 ```python
 runner.fuzz()
+
+# you can set timeout, step_size, and sleep seconds
+runner.fuzz(timeout = 5, step_size = 1000, sleep = 3)
+
+# use custom fuzzer
+def fuzzer(target: (str, int), timeout: int, prefix: str = "", postfix: str = "", step_size: int = 100, sleep: int = 1):
+    ...
+
+runner.setFuzzer(fuzzer)
 ```
 
 ## Sending Pattern
