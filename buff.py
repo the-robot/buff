@@ -87,6 +87,13 @@ class Buff:
         self.fuzzer(ip, address, timeout, self.prefix)
 
 
+    # --- Generic Sender ---
+    def send(self, buffer: str) -> None:
+        ip, port = self.target
+        buffer = self.prefix + buffer
+        self.sender(ip, port, buffer)
+
+
     # --- Send Pattern ---
     def generatePattern(self) -> str:
         """
