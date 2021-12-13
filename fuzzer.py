@@ -3,7 +3,7 @@ import sys
 import time
 
 
-def fuzz(target: (str, int), timeout: int, prefix: str = "", postfix: str = "", step_size: int = 100, sleep: int = 1):
+def fuzz(target: (str, int), timeout: int, prefix: str = "", postfix: str = "", step_size: int = 100, sleep: int = 1) -> None:
     """ A simple fuzzer. """
 
     ip, port = target
